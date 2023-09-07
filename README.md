@@ -15,3 +15,5 @@ Email Check: To avoid duplicate accounts, we make sure no two users can register
 Your Details: After logging in successfully, you can view and update your personal information, like your email and name, on your user details page.
 
 Logout Anytime: For added security, you can log out whenever you're done using the app.
+
+deployed app link -  https://saurav-mern-login-signup.netlify.app/
