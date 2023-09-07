@@ -23,3 +23,31 @@ code {
   background-color: #f0f2f5;
   font-family: Arial, Helvetica, sans-serif;
 }
+@media (max-width:900px){
+  .app .homepage{
+    width: 65vw;
+    height: 65vh;
+    text-align: center;
+    gap: 1rem;
+  }
+  .app .homepage h4{
+    font-size: 1.2rem;
+  }
+  .app .homepage #button{
+    padding: 1rem 2rem;
+  }
+}
+@media (max-width:600px){
+  .app .homepage{
+    width: 80vw;
+    height: 80vh;
+    text-align: center;
+    gap: 1rem;
+  }
+  .app .homepage h4{
+    font-size: 1.2rem;
+  }
+  .app .homepage #button{
+    padding: 1rem 2rem;
+  }
+}

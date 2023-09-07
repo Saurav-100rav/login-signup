@@ -4,10 +4,10 @@ import "./homepage.css"
 const Homepage = (props) => {
   const navigate = useNavigate();
   const LogOut = ()=>{
-    alert("will go")
+    alert("logging out....")
     props.setuser();
     navigate("/");
-    alert("clicked")
+    alert("Thanks for using our service, have a nice day buddy!😊😊😊😊");
   }
   return (
     <div className='homepage'>

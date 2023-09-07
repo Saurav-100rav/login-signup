@@ -35,9 +35,9 @@ const userLogin = async()=>{
         // console.log(obj);
         navigate("/")
       }
-      else if(response.data.msg==="wrong password")
+      else if(response.data.msg==="suspected behaviour, password not matched..")
        alert(response.data.msg)
-      else if(response.data.msg==="not registered"){
+      else if(response.data.msg==="User not registered in database..."){
         alert("Email entered by you not registered in Database");
         navigate("/register")
       } 

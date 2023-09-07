@@ -27,19 +27,26 @@ const Register = () => {
 //   setInput(obj);
 // }
   const navigate = useNavigate();
-  const RegisterUser = ()=>{
+  const RegisterUser = async()=>{
      const { fullname,email,password,password_check} = input;
      if(fullname==="" || email==="" || password==="" || password_check==="")
           alert("Please Enter All Fields...");
      else if(fullname && email && password && password_check){
         if(password===password_check){
-          axios.post("http://localhost:3050/register",input)
-          .then(
-            res => console.log(res),
-            alert("congrats,User added Successfully"),
-            navigate("/login")
-            )
-          .catch(err=>alert(err));
+          try {
+            const res = await axios.post("http://localhost:3050/register",input);
+            console.log(res)
+            if(res.data.msg==="user already registered"){
+              alert("This email is already registered in our database...\nPlease signup with a new email..");
+            }
+            else{
+              alert("congrats,User added Successfully")
+              navigate("/login")
+            }
+          } catch (error) {
+            console.log("Error while registering User..",error);
+          }
+
         }
         else alert("Invalid Input,password not matching..\nPlease Enter Correct Password..")
         

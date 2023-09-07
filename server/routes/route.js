@@ -3,12 +3,12 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
-app.post("/login",async(req,res)=>{
+router.post("/login",async(req,res)=>{
     try {
         const {email,password} = req.body;
         const user = await User.findOne({email:email});
         if(!user){
-            res.send("User not registered in database...");
+            res.json({"msg":"User not registered in database..."});
         }
         else{
             const hashed_password = user.password;
@@ -34,25 +34,16 @@ app.post("/login",async(req,res)=>{
         console.log("Error while logging User...");
         res.send(error); 
     }
-
-    // if(user){
-    //     if(password===user.password)
-    //         res.send({msg:"Success",user:user});
-    //     else res.send({msg:"wrong password"})    
-    // }
-    // else {
-    //     res.send({msg:"not registered"})
-    // }
 })
 
-app.post("/register",async(req,res)=>{
+router.post("/register",async(req,res)=>{
     // console.log(req.body,req.body.fullname,req.body.email);
     try {
         const name = req.body.fullname;
         const {email,password} = req.body;
         const oldUser =await User.findOne({email:email})
         if(oldUser)
-        res.send({message : "user already registered"}) 
+        res.json({"msg" : "user already registered"}) 
         else{
             const salt = await bcrypt.genSalt(10);
             const secure_password = await bcrypt.hash(password,salt);
