@@ -34,7 +34,7 @@ const Register = () => {
      else if(fullname && email && password && password_check){
         if(password===password_check){
           try {
-            const res = await axios.post("http://localhost:3050/register",input);
+            const res = await axios.post("https://login-signup-69ih.onrender.com/register",input);
             console.log(res)
             if(res.data.msg==="user already registered"){
               alert("This email is already registered in our database...\nPlease signup with a new email..");

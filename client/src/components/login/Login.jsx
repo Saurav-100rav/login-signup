@@ -24,7 +24,7 @@ const userLogin = async()=>{
       return;
     }
     else{
-      const response = await axios.post("http://localhost:3050/login",input)
+      const response = await axios.post("https://login-signup-69ih.onrender.com/login",input)
       //  console.log(response,response.data.user.name)
       console.log(response)
       if(response.data.msg==="Success"){
